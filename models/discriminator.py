@@ -8,7 +8,11 @@ class Discriminator(nn.Module):
 
         self.model = nn.Sequential(
 
-            nn.Conv2d(3, 128, 4, 2, 1),
+            nn.Conv2d(3, 64, 4, 2, 1),
+            nn.LeakyReLU(0.2),
+
+            nn.Conv2d(64, 128, 4, 2, 1),
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(0.2),
 
             nn.Conv2d(128, 256, 4, 2, 1),
